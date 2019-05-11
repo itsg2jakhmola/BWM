@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const dbconfig = require('./config/dev');
 const FakeDb = require('./fake-db');
 
+const rentalRouters = require('./router/router');
+
 const app = express();
 
 mongoose.connect(dbconfig.DB_URL, { useNewUrlParser: true })
@@ -13,10 +15,8 @@ mongoose.connect(dbconfig.DB_URL, { useNewUrlParser: true })
 					console.log("Error", error);
 				});
 
-app.get('/rentals', function(req, res) {
-	return res.json({"success" : true});
-})
 
+app.use('/api/v1/rentals', rentalRouters);
 //const PORT = proess.env.PORT || 3001;
 
 app.listen(3001, function() {
