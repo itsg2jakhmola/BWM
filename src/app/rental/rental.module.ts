@@ -8,7 +8,7 @@ import { RentalService } from '../shared/rental.service';
 import { RentalDetailComponent } from './rental-detail/rental-detail.component';
 import { SliderComponent } from './../slider-component/slider-component.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
 	{   path: 'rentals', 
@@ -36,6 +36,7 @@ const routes: Routes = [
 	],
 	imports : [
 	CommonModule,
+	HttpClientModule,
 	NgbModule,
 	RouterModule.forChild(routes)
 	],
